@@ -11,11 +11,7 @@ const Footer = () => {
               <span className=" bg-clip-text  "> Movie Master</span>{" "}
             </h2>
             <p className="md:text-[16px] font-normal text-[#627382] mt-2  ">
-              Movie Master — a colorful and fun-filled toy shop where
-              imagination comes to life! 🎈 From educational toys to action
-              figures, puzzles, and soft toys — we bring happiness and
-              creativity to every child’s playtime. Explore endless joy at Toys
-              World — where every toy tells a story!
+              Movie Master is a modern web application where users can explore information about various movies. It features popular, newly released, and top-rated films with options to filter by genre, view detailed information, and search easily. The app is fully responsive and built using React, TailwindCSS, and Express.js, providing a smooth and dynamic movie discovery experience.
             </p>
           </aside>
           <nav>
