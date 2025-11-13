@@ -73,7 +73,7 @@ export const router = createBrowserRouter([
         element: <LoginPages></LoginPages>,
       },
       {
-        path: "/topRatedMovie-",
+        path: "/topRatedMovie",
         element: <TopRatedMovie></TopRatedMovie>,
         loader: () => fetch("http://localhost:3000/topRated-movies"),
       },

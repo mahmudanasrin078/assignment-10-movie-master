@@ -13,7 +13,6 @@
 //   const { user } = useContext(AuthContext);
 
 //   // ------delete function-------
-  
 
 //   const handleDelete = () => {
 //     console.log("delete");
@@ -135,12 +134,7 @@
 
 // export default MovieDetails;
 
-
-
-
-
 //-------------
-
 
 import React, { useContext } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router";
@@ -152,6 +146,7 @@ const MovieDetails = () => {
   const navigate = useNavigate();
   const data = useLoaderData();
   const movie = data.result;
+  console.log(data);
   const { user } = useContext(AuthContext);
 
   // ------delete function-------
@@ -210,12 +205,17 @@ const MovieDetails = () => {
         <div className="w-full md:w-2/3 space-y-5">
           <h1 className="text-4xl md:text-5xl font-extrabold text-yellow-400">
             {movie.title}{" "}
-            <span className="text-gray-400 text-3xl">({movie.releaseYear})</span>
+            <span className="text-gray-400 text-3xl">
+              ({movie.releaseYear})
+            </span>
           </h1>
 
           <div className="flex flex-wrap gap-6 text-lg text-gray-300">
             <p>
-              ⭐ <span className="font-semibold text-yellow-400">{movie.rating}</span>
+              ⭐{" "}
+              <span className="font-semibold text-yellow-400">
+                {movie.rating}
+              </span>
             </p>
             <p>⏱ {movie.duration} min</p>
             <p>🎬 {movie.genre}</p>
@@ -251,7 +251,9 @@ const MovieDetails = () => {
               <Link
                 to={`/update-movie/${movie._id}`}
                 className={`btn btn-warning text-black font-semibold px-6 py-2 rounded-lg shadow-md transition ${
-                  user?.email !== movie.addedBy ? "opacity-50 cursor-not-allowed" : ""
+                  user?.email !== movie.addedBy
+                    ? "opacity-50 cursor-not-allowed"
+                    : ""
                 }`}
                 disabled={user?.email !== movie.addedBy}
               >
@@ -262,7 +264,9 @@ const MovieDetails = () => {
                 onClick={handleDelete}
                 disabled={user?.email !== movie.addedBy}
                 className={`btn btn-error font-semibold px-6 py-2 rounded-lg shadow-md transition ${
-                  user?.email !== movie.addedBy ? "opacity-50 cursor-not-allowed" : ""
+                  user?.email !== movie.addedBy
+                    ? "opacity-50 cursor-not-allowed"
+                    : ""
                 }`}
               >
                 🗑️ Delete
@@ -283,4 +287,3 @@ const MovieDetails = () => {
 };
 
 export default MovieDetails;
-

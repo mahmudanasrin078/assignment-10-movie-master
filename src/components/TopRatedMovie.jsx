@@ -1,11 +1,31 @@
-import React from "react";
-import { useLoaderData } from "react-router";
+import React, { useEffect, useState } from "react";
+
 import { MovieCard } from "./MovieCard";
+import LoadingSpinner from "./LoadingSpiner";
 
 const TopRatedMovie = () => {
-  const data = useLoaderData();
+  //const data = useLoaderData();
 
-  console.log(data);
+  const [topRatedMovie, setTopRatedMovie] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    fetch(`http://localhost:3000/topRated-movies`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setTopRatedMovie(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <LoadingSpinner></LoadingSpinner>;
+  }
+  //console.log(data);
   return (
     <div>
       <div>
@@ -14,7 +34,7 @@ const TopRatedMovie = () => {
         </div>
 
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {data.map((movie) => (
+          {topRatedMovie.map((movie) => (
             <MovieCard key={movie._id} movie={movie}></MovieCard>
           ))}
         </div>

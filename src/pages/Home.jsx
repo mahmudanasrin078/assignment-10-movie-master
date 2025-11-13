@@ -53,6 +53,8 @@ const Home = () => {
 <section>
   <TopRatedMovie></TopRatedMovie>
 </section>
+{/* ekhane dekhate hobe */}
+
 
       {/* about section */}
 

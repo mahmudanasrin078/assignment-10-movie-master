@@ -24,7 +24,7 @@ const UpdateMovie = () => {
 
       cast: e.target.cast.value,
 
-      rating: e.target.rating.value,
+      rating: parseFloat(e.target.rating.value),
 
       duration: e.target.duration.value,
 
@@ -53,38 +53,35 @@ const UpdateMovie = () => {
         console.log(err);
       });
   };
-// ------delete function-------
-const handleDelete=()=>{
-
-
-  Swal.fire({
-  title: "Are you sure?",
-  text: "You won't be able to revert this!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#3085d6",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "Yes, delete it!"
-}).then((result) => {
-  if (result.isConfirmed) {
+  // ------delete function-------
+  const handleDelete = () => {
     Swal.fire({
-      title: "Deleted!",
-      text: "Your file has been deleted.",
-      icon: "success"
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+      }
     });
-  }
-});
-}
-
+  };
 
   return (
-    <div className="min-h-screen bg-neutral text-neutral-content flex justify-center items-start py-12">
+    <div className="min-h-screen bg-neutral  flex justify-center items-start py-12">
       <form
         onSubmit={handleSubmit}
         className="card bg-base-300 w-full max-w-md shadow-xl p-6"
       >
-        <h2 className="text-2xl font-bold text-center text-primary mb-6">
-          Update Movie
+        <h2 className="text-2xl font-bold text-center mb-6">
+          Update <span className="text-red-500"> Movie</span>
         </h2>
 
         <div className="form-control text-[#767272]">
@@ -219,8 +216,12 @@ const handleDelete=()=>{
           </select>
         </div>
 
-        <button onClick={handleDelete} type="submit" className="btn btn-primary mt-6">
-         Update Movie
+        <button
+          onClick={handleDelete}
+          type="submit"
+          className="btn  rounded-full bg-linear-to-r from-pink-500 to-red-600 hover:from-red-600 hover:to-pink-500 text-white w-full btn-sm mt-6"
+        >
+          Update Movie
         </button>
       </form>
     </div>

@@ -9,6 +9,7 @@ const AddMovie = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const formData = {
       title: e.target.title.value,
 
@@ -22,7 +23,7 @@ const AddMovie = () => {
 
       cast: e.target.cast.value,
 
-      rating: e.target.rating.value,
+      rating: parseFloat(e.target.rating.value),
 
       duration: e.target.duration.value,
 
@@ -35,7 +36,7 @@ const AddMovie = () => {
       addedBy: user.email,
     };
 
-    // console.log(formData);
+    console.log(formData);
     //---- url ke call-----
     fetch("http://localhost:3000/movies", {
       method: "POST",
@@ -55,13 +56,13 @@ const AddMovie = () => {
   };
 
   return (
-    <div className="min-h-screen bg-neutral text-neutral-content flex justify-center items-start py-12">
+    <div className="min-h-screen bg-neutral flex justify-center items-start py-12">
       <form
         onSubmit={handleSubmit}
         className="card bg-base-300 w-full max-w-md shadow-xl p-6"
       >
-        <h2 className="text-2xl font-bold text-center text-primary mb-6">
-          Add a Movie
+        <h2 className="text-2xl font-bold text-center mb-6">
+          Add <span className="text-red-500"> Movie</span>
         </h2>
 
         <div className="form-control text-[#767272]">
@@ -196,7 +197,10 @@ const AddMovie = () => {
           </select>
         </div>
 
-        <button type="submit" className="btn btn-primary mt-6">
+        <button
+          type="submit"
+          className="btn mt-4 rounded-full bg-linear-to-r from-pink-500 to-red-600 hover:from-red-600 hover:to-pink-500 text-white w-full btn-sm"
+        >
           Submit
         </button>
       </form>
