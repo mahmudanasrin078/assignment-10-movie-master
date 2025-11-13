@@ -203,7 +203,7 @@ const MovieDetails = () => {
 
         {/* Movie Info */}
         <div className="w-full md:w-2/3 space-y-5">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-yellow-400">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-red-400">
             {movie.title}{" "}
             <span className="text-gray-400 text-3xl">
               ({movie.releaseYear})
@@ -250,7 +250,7 @@ const MovieDetails = () => {
             <div className="flex flex-wrap gap-4 mt-6">
               <Link
                 to={`/update-movie/${movie._id}`}
-                className={`btn btn-warning text-black font-semibold px-6 py-2 rounded-lg shadow-md transition ${
+                className={`btn btn-red text-white font-semibold px-6 py-2 bg-linear-to-r from-pink-500 to-red-600 hover:from-red-600 hover:to-pink-500  rounded-lg shadow-md transition ${
                   user?.email !== movie.addedBy
                     ? "opacity-50 cursor-not-allowed"
                     : ""
@@ -263,7 +263,8 @@ const MovieDetails = () => {
               <button
                 onClick={handleDelete}
                 disabled={user?.email !== movie.addedBy}
-                className={`btn btn-error font-semibold px-6 py-2 rounded-lg shadow-md transition ${
+                className={`btn btn-error 
+                  text-white font-semibold bg-linear-to-r from-pink-500 to-red-600 hover:from-red-600 hover:to-pink-500  px-6 py-2 rounded-lg shadow-md transition ${
                   user?.email !== movie.addedBy
                     ? "opacity-50 cursor-not-allowed"
                     : ""
@@ -274,7 +275,7 @@ const MovieDetails = () => {
 
               <button
                 onClick={handleWatchList}
-                className="btn bg-green-500 hover:bg-green-600 text-black font-semibold px-6 py-2 rounded-lg shadow-md transition"
+                className="btn bg-linear-to-r from-pink-500 to-red-600 hover:from-red-600 hover:to-pink-500  font-semibold px-6 py-2 rounded-lg shadow-md transition"
               >
                 🎞️ Add to Watchlist
               </button>

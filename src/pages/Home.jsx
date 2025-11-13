@@ -114,58 +114,6 @@ const Home = () => {
       {/* about section */}
 
       {/*Latest 6 movie */}
-
-      {/*carousel  card*/}
-      <div>
-        <div className="text-2xl font-bold p-5">
-          {" "}
-          <span className="text-red-500">Movies</span>
-        </div>
-        <div className="carousel rounded-box">
-          <div className="carousel-item">
-            <img
-              src="https://i.ibb.co.com/tpRbyH4w/images-2.jpg"
-              alt="Burger"
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="https://i.ibb.co.com/nqw4dJks/images-1.jpg"
-              alt="Burger"
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="https://i.ibb.co.com/C5NjSn0G/images-6.jpg"
-              alt="Burger"
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="https://i.ibb.co.com/YFmHxnF2/images-8.jpg"
-              alt="Burger"
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src=" https://i.ibb.co.com/bgRZ8TQD/images-9.jpg"
-              alt="Burger"
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="https://i.ibb.co.com/TxPZFc4X/images-10.jpg"
-              alt="Burger"
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="https://i.ibb.co.com/zhmvvjRc/images-11.jpg"
-              alt="Burger"
-            />
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

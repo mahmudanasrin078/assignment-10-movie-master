@@ -24,7 +24,7 @@ const MyWatchList = () => {
   }
 
   return (
-    <div>
+    <div className="bg-gray-600 py-10 -my-5 -mb-11">
       <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
         {myCollection.map((movie) => (
           <MovieCard key={movie._id} movie={movie}></MovieCard>
