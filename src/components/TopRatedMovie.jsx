@@ -25,17 +25,15 @@ const TopRatedMovie = () => {
   }
   //console.log(data);
   return (
-    <div>
-      <div>
-        <div className="text-2xl font-bold p-5">
-          Top Rated <span className="text-red-500">Movies </span>
-        </div>
+    <div className="bg-gray-700">
+      <div className="text-2xl text-white font-bold p-5">
+        Top Rated <span className="text-red-500">Movies </span>
+      </div>
 
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {topRatedMovie.map((movie) => (
-            <MovieCard key={movie._id} movie={movie}></MovieCard>
-          ))}
-        </div>
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {topRatedMovie.map((movie) => (
+          <MovieCard key={movie._id} movie={movie}></MovieCard>
+        ))}
       </div>
     </div>
   );

@@ -69,16 +69,20 @@ const Home = () => {
         <FilterMovies></FilterMovies>
       </section>
       {/*  */}
-      <section>
-        <div>
-          <div className="text-center text-2xl bg-gray-800  text-white p-20">
-            All Movie ({movies.length})
+      <section className="px-4 py-8 bg-gray-900">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Movie Card */}
+          <div className="text-center text-2xl bg-gray-800 text-white p-10 sm:p-16 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+            All Movies ({movies.length})
           </div>
-          <div className="text-center text-2xl bg-gray-800  text-white p-20">
-            Total User ({user.user})
+
+          {/* User Card */}
+          <div className="text-center text-2xl bg-gray-800 text-white p-10 sm:p-16 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+            Total Users ({user.user})
           </div>
         </div>
       </section>
+
       {/* about */}
       <section>
         <div
@@ -126,7 +130,7 @@ const Home = () => {
       {/* ----------------- */}
 
       <section data-aos="fade-up" className="px-5 py-10 bg-gray-900">
-        <div className="text-2xl font-bold p-5">
+        <div className="text-2xl text-white font-bold p-5">
           Recently <span className="text-red-500">Added </span>
         </div>
 
@@ -138,15 +142,9 @@ const Home = () => {
       </section>
       {/* top Movie*/}
 
-      <section data-aos="fade-up">
+      <section data-aos="fade-up" className="-mb-5">
         <TopRatedMovie></TopRatedMovie>
       </section>
-
-      {/* ekhane dekhate hobe */}
-
-      {/* about section */}
-
-      {/*Latest 6 movie */}
     </div>
   );
 };
