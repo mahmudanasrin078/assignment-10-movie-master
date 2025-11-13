@@ -20,6 +20,8 @@ import UpdateMovie from "../pages/UpdateMovie";
 import MovieDetails from "../pages/MovieDetails";
 import MyWatchList from "../pages/MyWatchList";
 import TopRatedMovie from "../components/TopRatedMovie";
+import Filter from "../components/FilterMovies";
+import FilterMovies from "../components/FilterMovies";
 
 export const router = createBrowserRouter([
   {
@@ -76,6 +78,11 @@ export const router = createBrowserRouter([
         path: "/topRatedMovie",
         element: <TopRatedMovie></TopRatedMovie>,
         loader: () => fetch("http://localhost:3000/topRated-movies"),
+      },
+      {
+        path: "/filter-movies",
+        element: <FilterMovies></FilterMovies>,
+        loader: () => fetch("http://localhost:3000/filter-movies"),
       },
       {
         path: "/about",
