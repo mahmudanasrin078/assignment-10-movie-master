@@ -4,12 +4,10 @@ import { MovieCard } from "./MovieCard";
 import LoadingSpinner from "./LoadingSpiner";
 
 const TopRatedMovie = () => {
-  
-
   const [topRatedMovie, setTopRatedMovie] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch(`http://localhost:3000/topRated-movies`)
+    fetch(`https://assignment-10-movie-server.vercel.app/topRated-movies`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

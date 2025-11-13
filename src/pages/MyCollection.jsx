@@ -10,7 +10,9 @@ const MyCollection = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/my-collection?email=${user.email}`)
+    fetch(
+      `https://assignment-10-movie-server.vercel.app/my-collection?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         //console.log(data);
@@ -24,7 +26,7 @@ const MyCollection = () => {
   }
 
   return (
-    <div>
+    <div className="bg-gray-800 py-12 -mt-5 -mb-11">
       <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
         {myCollection.map((movie) => (
           <MovieCard key={movie._id} movie={movie}></MovieCard>

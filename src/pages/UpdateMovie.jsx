@@ -37,7 +37,7 @@ const UpdateMovie = () => {
 
     // console.log(formData);
     //---- url ke call-----
-    fetch(`http://localhost:3000/movies/${movie._id}`, {
+    fetch(`https://assignment-10-movie-server.vercel.app/movies/${movie._id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",

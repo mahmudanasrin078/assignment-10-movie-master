@@ -38,7 +38,7 @@ const AddMovie = () => {
 
     console.log(formData);
     //---- url ke call-----
-    fetch("http://localhost:3000/movies", {
+    fetch("https://assignment-10-movie-server.vercel.app/movies", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

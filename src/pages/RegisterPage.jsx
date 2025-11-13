@@ -28,7 +28,7 @@ const RegisterPage = () => {
     const displayName = e.target.name?.value;
     const photoURL = e.target.photo?.value;
 
-   // console.log({ email, password, photoURL, displayName });
+    // console.log({ email, password, photoURL, displayName });
 
     const regExp = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
@@ -49,6 +49,29 @@ const RegisterPage = () => {
     createUserWithEmailAndPasswordFunc(email, password)
       .then((res) => {
         console.log(res);
+
+        const userData = {
+          name: res.user.displayName,
+          email: res.user.email,
+
+          photoURL: res.user.photoURL,
+        };
+        fetch("https://assignment-10-movie-server.vercel.app/user", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            toast.success("Successfully added!");
+            console.log(data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+
         // update Profile
 
         updateProfileFunc(displayName, photoURL)
@@ -88,7 +111,7 @@ const RegisterPage = () => {
       });
   };
 
- const handleGoogleLogin = () => {
+  const handleGoogleLogin = () => {
     console.log("google login");
     signInWithEmailFunc()
       .then((res) => {
@@ -96,7 +119,7 @@ const RegisterPage = () => {
         setLoading(false);
         setUser(res.user);
 
-       // navigate(from);
+        // navigate(from);
         toast.success("Google Login Successful");
       })
       .catch((e) => {
@@ -105,7 +128,6 @@ const RegisterPage = () => {
       });
   };
 
-  
   return (
     <div>
       <title>Register-Page</title>
@@ -167,23 +189,22 @@ const RegisterPage = () => {
                     </span>
                   </div>
 
+                  {/* Google Signin */}
 
-                   {/* Google Signin */}
-
-                <div className="my-3">
-                  <button
-                    onClick={handleGoogleLogin}
-                    type="button"
-                    className="flex items-center justify-center gap-3 bg-white text-gray-800 px-5 py-2 rounded-lg w-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer btn"
-                  >
-                    <img
-                      src="https://www.svgrepo.com/show/475656/google-color.svg"
-                      alt="google"
-                      className="w-5 h-5"
-                    />
-                    Continue with Google
-                  </button>
-                </div>
+                  <div className="my-3">
+                    <button
+                      onClick={handleGoogleLogin}
+                      type="button"
+                      className="flex items-center justify-center gap-3 bg-white text-gray-800 px-5 py-2 rounded-lg w-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer btn"
+                    >
+                      <img
+                        src="https://www.svgrepo.com/show/475656/google-color.svg"
+                        alt="google"
+                        className="w-5 h-5"
+                      />
+                      Continue with Google
+                    </button>
+                  </div>
 
                   <button type="submit" className="btn btn-neutral mt-4">
                     Register

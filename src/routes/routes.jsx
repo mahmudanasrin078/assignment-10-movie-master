@@ -33,7 +33,8 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:3000/latest-movies"),
+        loader: () =>
+          fetch("https://assignment-10-movie-server.vercel.app/latest-movies"),
       },
       {
         path: "/profile",
@@ -47,7 +48,9 @@ export const router = createBrowserRouter([
         path: "/movie-details/:id",
         element: <MovieDetails></MovieDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/movies/${params.id}`),
+          fetch(
+            `https://assignment-10-movie-server.vercel.app/movies/${params.id}`
+          ),
       },
       {
         path: "/add-movie",
@@ -67,7 +70,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/movies/${params.id}`),
+          fetch(
+            `https://assignment-10-movie-server.vercel.app/movies/${params.id}`
+          ),
       },
 
       {
@@ -77,12 +82,16 @@ export const router = createBrowserRouter([
       {
         path: "/topRatedMovie",
         element: <TopRatedMovie></TopRatedMovie>,
-        loader: () => fetch("http://localhost:3000/topRated-movies"),
+        loader: () =>
+          fetch(
+            "https://assignment-10-movie-server.vercel.app/topRated-movies"
+          ),
       },
       {
         path: "/filter-movies",
         element: <FilterMovies></FilterMovies>,
-        loader: () => fetch("http://localhost:3000/filter-movies"),
+        loader: () =>
+          fetch("https://assignment-10-movie-server.vercel.app/filter-movies"),
       },
       {
         path: "/about",
@@ -91,7 +100,8 @@ export const router = createBrowserRouter([
       {
         path: "/all-movies",
         element: <AllMovies></AllMovies>,
-        loader: () => fetch("http://localhost:3000/movies"),
+        loader: () =>
+          fetch("https://assignment-10-movie-server.vercel.app/movies"),
       },
       {
         path: "/my-collection",

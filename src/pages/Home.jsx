@@ -5,7 +5,7 @@ import Genres from "../components/Genres";
 import TopRatedMovie from "../components/TopRatedMovie";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import FilterMovies from "../components/FilterMovies";
 
 // ---------------
@@ -13,9 +13,32 @@ import FilterMovies from "../components/FilterMovies";
 const Home = () => {
   const data = useLoaderData();
 
-  console.log(data);
   // -----------------
+  const [movies, setMovies] = useState([]);
+  console.log(movies);
+  useEffect(() => {
+    fetch("https://assignment-10-movie-server.vercel.app/movies")
+      .then((res) => res.json())
+      .then((data) => {
+        setMovies(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching movies:", error);
+      });
+  }, []);
 
+  const [user, setUser] = useState([]);
+  console.log(user);
+  useEffect(() => {
+    fetch("https://assignment-10-movie-server.vercel.app/stats")
+      .then((res) => res.json())
+      .then((data) => {
+        setUser(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching movies:", error);
+      });
+  }, []);
   // --------------
 
   useEffect(() => {
@@ -45,7 +68,17 @@ const Home = () => {
       <section data-aos="fade-up">
         <FilterMovies></FilterMovies>
       </section>
-
+      {/*  */}
+      <section>
+        <div>
+          <div className="text-center text-2xl bg-gray-800  text-white p-20">
+            All Movie ({movies.length})
+          </div>
+          <div className="text-center text-2xl bg-gray-800  text-white p-20">
+            Total User ({user.user})
+          </div>
+        </div>
+      </section>
       {/* about */}
       <section>
         <div
