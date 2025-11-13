@@ -13,7 +13,7 @@ const Genres = () => {
   ];
 
   return (
-    <div className="bg-gray-900 py-12">
+    <div className="bg-gray-900 py-12 -mt-2">
       <h2 className="text-3xl font-bold text-center text-white mb-8">
         Popular <span className="text-red-500">Genres</span>
       </h2>

@@ -50,7 +50,7 @@ const Home = () => {
       <section>
         <div
           data-aos="fade-down"
-          className="bg-base-200 px-4 py-12 md:px-8 lg:px-16"
+          className="bg-gray-700 px-4 py-12 md:px-8 lg:px-16"
         >
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-8">
             {/* Left  */}
@@ -64,10 +64,10 @@ const Home = () => {
 
             {/* Right  */}
             <div className="flex-1">
-              <h1 className="text-2xl sm:text-2xl font-bold  mb-4 text-center lg:text-left">
-                About <span className="text-pink-500">MovieMaster</span>
+              <h1 className="text-3xl sm:text-3xl font-bold  mb-4 text-center text-white lg:text-left">
+                About <span className="text-red-500">MovieMaster</span>
               </h1>
-              <p className="py-2 text-gray-500 text-base sm:text-lg text-center lg:text-left">
+              <p className="py-2 text-gray-300 text-base sm:text-lg text-center lg:text-left">
                 <strong>MovieMaster Pro</strong> is a modern movie and web
                 series management platform where users can explore the latest
                 releases, trending titles, and detailed reviews with ease. This
@@ -92,7 +92,7 @@ const Home = () => {
 
       {/* ----------------- */}
 
-      <section data-aos="fade-up" className="px-5 py-10">
+      <section data-aos="fade-up" className="px-5 py-10 bg-gray-900">
         <div className="text-2xl font-bold p-5">
           Recently <span className="text-red-500">Added </span>
         </div>

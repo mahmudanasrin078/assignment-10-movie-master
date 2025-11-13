@@ -57,11 +57,11 @@ const FilterMovies = () => {
 
   return (
     <div className="container mx-auto px-4 bg-gray-800 py-8">
-      <h2 className="text-2xl font-bold mb-6 text-center ">
+      <h2 className="text-2xl font-bold mb-6 text-center text-white">
         Filter <span className="text-red-500"> Movies</span>
       </h2>
 
-      <div className="flex flex-wrap gap-4 justify-center mb-6">
+      <div className="flex flex-wrap gap-4 justify-center items-center text-white mb-6">
         <div>
           <label className="font-semibold mr-2">Genres:</label>
           {genres.map((genre) => (
@@ -105,7 +105,7 @@ const FilterMovies = () => {
 
         <button
           onClick={handleFilter}
-          className="btn rounded-full bg-linear-to-r from-pink-500 to-red-600 hover:from-red-600 hover:to-pink-500 text-white w-full "
+          className="btn rounded-full bg-linear-to-r from-pink-500 to-red-600 hover:from-red-600 hover:to-pink-500 text-white mt-5 w-[500px] "
         >
           Apply Filter
         </button>
