@@ -1,182 +1,5 @@
-// //import React, { use } from "react";
-// import React, { useContext, useEffect, useState } from "react";
-// import { Link, NavLink } from "react-router";
-// import { AuthContext } from "../context/AuthContext";
-// import { toast } from "react-toastify";
-// import { HashLoader } from "react-spinners";
 
-// const Navbar = () => {
-//   const { user, logOutUserFunc, setUser, loading } = useContext(AuthContext);
-//   // console.log(user);
 
-//    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-
-//   const handleLogout = () => {
-//     logOutUserFunc()
-//       .then(() => {
-//         toast.success("Logout successful");
-//         setUser(null);
-//       })
-//       .catch((e) => {
-//         console.log(e);
-//         toast.error(e.message);
-//       });
-//   };
-
-// // theme
-
-//   useEffect(() => {
-//     const html = document.querySelector("html");
-//     html.setAttribute("data-theme", theme);
-//     localStorage.setItem("theme", theme);
-//   }, [theme]);
-
-//   const handleTheme = (checked) => {
-//     setTheme(checked?'dark':'light')
-
-//   };
-
-//   return (
-//     <div>
-//       <div className="  md:flex justify-center md:justify-between items-center w-11/12 mx-auto my-5 ">
-//         <div className=" text-2xl flex md:justify-between items-center gap-1 my-3 md:my-0">
-//           <h2 className="font-bold">
-//             Movie <span className="text-[#4f18db]">Master</span>
-//           </h2>
-//         </div>
-//         <div className="nav flex gap-5 text-accent my-3 md:my-0">
-//           <NavLink
-//             to={"/"}
-//             className={({ isActive }) =>
-//               isActive ? "active-link" : "inactive-link"
-//             }
-//           >
-//             {" "}
-//             Home
-//           </NavLink>
-
-//           <NavLink
-//             to={"/all-movies"}
-//             className={({ isActive }) =>
-//               isActive ? "active-link" : "inactive-link"
-//             }
-//           >
-//             {" "}
-//             All Movies
-//           </NavLink>
-
-//           {/* protected profile */}
-
-//           {user && (
-//             <NavLink
-//               to={"/add-movie"}
-//               className={({ isActive }) =>
-//                 isActive ? "active-link" : "inactive-link"
-//               }
-//             >
-//               {" "}
-//               Add Movies
-//             </NavLink>
-//           )}
-//           {user && (
-//             <NavLink
-//               to={"/my-collection"}
-//               className={({ isActive }) =>
-//                 isActive ? "active-link" : "inactive-link"
-//               }
-//             >
-//               {" "}
-//               My Collection
-//             </NavLink>
-//           )}
-//           {/* profile */}
-
-//           {/* watchlist */}
-
-//           {user && (
-//             <NavLink
-//               to={"/my-watchList"}
-//               className={({ isActive }) =>
-//                 isActive ? "active-link" : "inactive-link"
-//               }
-//             >
-//               {" "}
-//               My WatchList
-//             </NavLink>
-//           )}
-//         </div>
-
-//         {loading ? (
-//           <HashLoader />
-//         ) : user ? (
-//           <div className="text-center space-y-3 p-3">
-//             {/* change popover-1 and --anchor-1 names. Use unique names for each dropdown */}
-//             {/* For TSX uncomment the commented types below */}
-//             <button
-//               className="btn"
-//               popoverTarget="popover-1"
-//               style={{ anchorName: "--anchor-1" } /* as React.CSSProperties */}
-//             >
-//               {/* Theme Toggling Button   */}
-//               <div>
-//                 <input
-//                   onChange={(e) => handleTheme(e.target.checked)}
-//                   type="checkbox"
-//                   defaultChecked={localStorage.getItem("theme") === "dark"}
-//                   className="toggle"
-//                 />
-//               </div>
-
-//               <img
-//                 className="h-[30px] w-[30px] rounded-full mx-auto  "
-//                 src={
-//                   user?.photoURL ||
-//                   "https://img.icons8.com/?size=96&id=8vsjJt13MQHk&format=png"
-//                 }
-//                 alt="user"
-//                 title={user?.displayName ? user.displayName : ""}
-//               />
-//             </button>
-
-//             <div
-//               className="dropdown -ml-48 menu w-52 rounded-box bg-base-100 shadow-sm"
-//               popover="auto"
-//               id="popover-1"
-//               style={
-//                 { positionAnchor: "--anchor-1" } /* as React.CSSProperties */
-//               }
-//             >
-//               <h2 className="text-xl font-semibold ">{user?.displayName}</h2>
-//               <p className="text-xs font-semibold text-black">{user?.email}</p>
-//               <li className="mt-3">
-//                 <Link to={"/profile"}>Profile</Link>
-//               </li>
-//               <button
-//                 onClick={handleLogout}
-//                 className="btn bg-primary text-white w-full"
-//               >
-//                 Logout
-//               </button>
-//             </div>
-//           </div>
-//         ) : (
-//           <div>
-//             <Link to="/login-pages" className="btn btn-primary px-10 mr-3">
-//               Login
-//             </Link>
-//             <Link to="/register-page" className="btn btn-primary px-10">
-//               Register
-//             </Link>
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Navbar;
-
-// -------------------
 
 import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
@@ -186,7 +9,7 @@ import { HashLoader } from "react-spinners";
 
 const Navbar = () => {
   const { user, logOutUserFunc, setUser, loading } = useContext(AuthContext);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = () => {
@@ -320,7 +143,7 @@ const Navbar = () => {
                 />
               </button>
               <div
-                className="dropdown menu w-52 rounded-box bg-base-100 shadow-sm absolute right-0 mt-2"
+                className="dropdown menu w-52 -ml-28 rounded-box bg-base-100 shadow-sm absolute right-0 mt-2"
                 popover="auto"
                 id="popover-1"
                 style={{ positionAnchor: "--anchor-1" }}
@@ -359,7 +182,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* === Mobile & Tablet Dropdown Menu === */}
+      {/* Mobile*/}
       <div
         className={`transition-all duration-300 ease-in-out bg-base-100 border-t border-gray-300 dark:border-gray-700 lg:hidden ${
           menuOpen
