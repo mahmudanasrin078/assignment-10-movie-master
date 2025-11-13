@@ -59,17 +59,11 @@ const Home = () => {
         <Genres></Genres>
       </section>
 
-      {/* top Movie*/}
-
-      <section data-aos="fade-up">
-        <TopRatedMovie></TopRatedMovie>
-      </section>
-      {/* ekhane dekhate hobe */}
-
-      {/* about section */}
-
-      <section >
-        <div className="bg-base-200 px-4 py-12 md:px-8 lg:px-16">
+      <section>
+        <div
+          data-aos="fade-down"
+          className="bg-base-200 px-4 py-12 md:px-8 lg:px-16"
+        >
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-8">
             {/* Left  */}
             <div className="flex-1">
@@ -108,10 +102,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/*Latest 6 movie */}
-
-      <section className="px-5 py-10">
-        
+      <section data-aos="fade-up" className="px-5 py-10">
         <div className="text-2xl font-bold p-5">
           Recently <span className="text-red-500">Added </span>
         </div>
@@ -121,10 +112,18 @@ const Home = () => {
             <MovieCard key={movie._id} movie={movie}></MovieCard>
           ))}
         </div>
-      
+      </section>
+      {/* top Movie*/}
+
+      <section data-aos="fade-up">
+        <TopRatedMovie></TopRatedMovie>
       </section>
 
-      {/* top 5 movies */}
+      {/* ekhane dekhate hobe */}
+
+      {/* about section */}
+
+      {/*Latest 6 movie */}
 
       {/*carousel  card*/}
       <div>
