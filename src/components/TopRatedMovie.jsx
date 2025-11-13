@@ -4,7 +4,7 @@ import { MovieCard } from "./MovieCard";
 import LoadingSpinner from "./LoadingSpiner";
 
 const TopRatedMovie = () => {
-  //const data = useLoaderData();
+  
 
   const [topRatedMovie, setTopRatedMovie] = useState([]);
   const [loading, setLoading] = useState(true);

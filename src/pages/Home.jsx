@@ -3,39 +3,50 @@ import Slider from "../components/Slider";
 import { MovieCard } from "../components/MovieCard";
 import Genres from "../components/Genres";
 import TopRatedMovie from "../components/TopRatedMovie";
-
-
-
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 // ---------------
 
 const Home = () => {
-  //   useEffect(() => {
-  //     AOS.init({
-  //       // Global settings:
-  //       disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-  //       startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
-  //       initClassName: "aos-init", // class applied after initialization
-  //       animatedClassName: "aos-animate", // class applied on animation
-  //       useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-  //       disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-  //       debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-  //       throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-  //       // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-  //       offset: 120, // offset (in px) from the original trigger point
-  //       delay: 0, // values from 0 to 3000, with step 50ms
-  //       duration: 400, // values from 0 to 3000, with step 50ms
-  //       easing: "ease", // default easing for AOS animations
-  //       once: false, // whether animation should happen only once - while scrolling down
-  //       mirror: false, // whether elements should animate out while scrolling past them
-  //       anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
-  //     });
-// }, []);
-  
   const data = useLoaderData();
 
   console.log(data);
+
+  // useEffect(() => {
+  //   // Aos.init({
+  //   //   // Global settings:
+  //   //   disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+  //   //   startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+  //   //   initClassName: "aos-init", // class applied after initialization
+  //   //   animatedClassName: "aos-animate", // class applied on animation
+  //   //   useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+  //   //   disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+  //   //   debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+  //   //   throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+  //   //   // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+  //   //   offset: 120, // offset (in px) from the original trigger point
+  //   //   delay: 0, // values from 0 to 3000, with step 50ms
+  //   //   duration: 400, // values from 0 to 3000, with step 50ms
+  //   //   easing: "ease", // default easing for AOS animations
+  //   //   once: false, // whether animation should happen only once - while scrolling down
+  //   //   mirror: false, // whether elements should animate out while scrolling past them
+  //   //   anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+  //   // });
+
+  // }, []);
+  useEffect(() => {
+    Aos.init({
+      duration: 800,
+      offset: 120,
+      easing: "ease-in-out",
+      delay: 0,
+      once: true,
+    });
+  }, []);
+
   return (
     <div>
       <title>Home</title>
@@ -44,21 +55,20 @@ const Home = () => {
       </section>
 
       {/* genre section */}
-<section>
-  <Genres></Genres>
-</section>
+      <section data-aos="fade-up">
+        <Genres></Genres>
+      </section>
 
-{/* top Movie*/}
+      {/* top Movie*/}
 
-<section>
-  <TopRatedMovie></TopRatedMovie>
-</section>
-{/* ekhane dekhate hobe */}
-
+      <section data-aos="fade-up">
+        <TopRatedMovie></TopRatedMovie>
+      </section>
+      {/* ekhane dekhate hobe */}
 
       {/* about section */}
 
-      <section>
+      <section >
         <div className="bg-base-200 px-4 py-12 md:px-8 lg:px-16">
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-8">
             {/* Left  */}
@@ -100,7 +110,8 @@ const Home = () => {
 
       {/*Latest 6 movie */}
 
-      <div>
+      <section className="px-5 py-10">
+        
         <div className="text-2xl font-bold p-5">
           Recently <span className="text-red-500">Added </span>
         </div>
@@ -110,12 +121,10 @@ const Home = () => {
             <MovieCard key={movie._id} movie={movie}></MovieCard>
           ))}
         </div>
-      </div>
+      
+      </section>
 
-
-{/* top 5 movies */}
-
-
+      {/* top 5 movies */}
 
       {/*carousel  card*/}
       <div>
