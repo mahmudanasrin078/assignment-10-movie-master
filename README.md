@@ -9,7 +9,7 @@ github(client): https://github.com/mahmudanasrin078/assignment-10-movie-master
 
 🔗 MovieMaster Pro Live Demo
 
-🔗 Server on Vercel
+🔗 Server on Vercel: https://assignment-10-movie-server.vercel.app
 
 ⚙️ Technologies Used
 🧩 Frontend:
