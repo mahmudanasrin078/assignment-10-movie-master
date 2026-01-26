@@ -3,7 +3,9 @@
 A modern movie management system where users can explore, manage, and organize their favorite movies with advanced filtering, CRUD operations, and personalized collections.
 Built using React, TailwindCSS, Firebase, and Express.js, this app delivers a smooth, dynamic, and responsive experience.
 
-🌐 Live Site
+🌐 Live Site: https://assignment-10-movie-master.web.app
+
+github(client): https://github.com/mahmudanasrin078/assignment-10-movie-master
 
 🔗 MovieMaster Pro Live Demo
 
